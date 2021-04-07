@@ -10,7 +10,7 @@ const initialState = {
     { id: 0, description: "Create a ToDo App", isDone: true },
     { id: 1, description: "Response to some eMails", isDone: false },
   ],
-};
+  };
 
 const ToDos = (state = initialState, action) => {
   switch (action.type) {

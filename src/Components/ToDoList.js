@@ -2,7 +2,7 @@ import React from "react";
 import { connect, useSelector } from "react-redux";
 import ToDoCard from "./ToDoCard";
 
-const ToDoList = () => {
+const ToDoList = ({taskFilter}) => {
   const tasks = useSelector((state) => state.tasks);
   return (
     <div className="Container">
@@ -11,7 +11,15 @@ const ToDoList = () => {
       </div>
       <div>
         <ul id="myUl">
-          {tasks.map((el, i) => (
+          {tasks
+          .filter((el) => {
+            switch (taskFilter) {
+              case "completed" : return el.isDone === true;
+              case "uncompleted" : return el.isDone===false;
+              default: return el;
+            }
+          })
+          .map((el, i) => (
             <ToDoCard task={el} key={i} />
           ))}
         </ul>

@@ -6,11 +6,10 @@ const AddToDo = () => {
   const [input, setInput] = useState("");
   const tasks = useSelector((state) => state.tasks);
   const dispatch = useDispatch();
-
   let id = tasks.length + 1;
 
   return (
-    <div className="Input-Container">
+    <div >
       <div className="add-element">
         <h1>Welcome to your ToDo APP!</h1>
         <h4>Add a new Task</h4>
@@ -22,7 +21,7 @@ const AddToDo = () => {
             onChange={(el) => setInput(el.target.value)}
             value={input}
           />
-          <br/>
+          <br />
           <button
             className="add-Btn"
             onClick={() => {
